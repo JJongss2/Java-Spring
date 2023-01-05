@@ -1,0 +1,35 @@
+package algorithm;
+
+public class ex2 {
+    public static void main(String[] args){
+        int[] n = {12, 25, 41, 48, 54, 66, 70, 83, 95, 100};
+        int t = 83;
+        int left = 0;
+        int right = n.length -1;
+        int mid = (left + right)/2;
+
+        int temp = n[mid];
+        boolean find = false;
+
+        while(left<=right){
+            if(t == temp){
+                find = true;
+                break;
+            }
+            else if (t <temp){
+                right = mid-1;
+            }
+            else{
+                left = mid+1;
+            }
+            mid = (left+right)/2;
+            temp = n[mid];
+        }
+
+        if(find == true){
+            mid++;
+            System.out.println("찾는 수는 " + mid + "번째 있습니다.");
+        }
+        else System.out.println("찾는 수가 없습니다.");
+    }
+}
